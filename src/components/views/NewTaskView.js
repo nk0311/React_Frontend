@@ -1,7 +1,7 @@
 
 
 
-const NewCourseView = (props) => {
+const NewTaskView = (props) => {
   const {handleChange, handleSubmit } = props;
 
   return (
@@ -9,7 +9,7 @@ const NewCourseView = (props) => {
       <div className="formContainer">
         <div className="formTitle">
           <h2 style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-            New Course
+            New Task
           </h2>
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
@@ -23,8 +23,8 @@ const NewCourseView = (props) => {
           <br/>
           <br/>
 
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>instructorId: </label>
-          <input type="text" name="instructorId" onChange={(e) => handleChange(e)} />
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>employeeId: </label>
+          <input type="text" name="employeeId" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
@@ -40,4 +40,4 @@ const NewCourseView = (props) => {
   )
 }
 
-export default NewCourseView;
+export default NewTaskView;
