@@ -1,4 +1,3 @@
-Contributors:
-  - Navait Kumar (nk0311)
-  - Kevin Ulcena (Kevin635)
-  - Eric Lin (ELin-Tech)
+# final-frontend
+
+starter code for CSCI 39548 final project
