@@ -2,28 +2,28 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { fetchCourseThunk, editCourseThunk } from '../../store/thunks';
+import { fetchTaskThunk, editTaskThunk } from '../../store/thunks';
 
 
-class EditCourseContainer extends Component {
+class EditTaskContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
           title: "", 
           timeslot: "",
-          instructorId: null, 
+          EmployeeId: null, 
           redirect: false, 
           redirectId: null
         };
     }
 
     componentDidMount() {
-        //getting course ID from url
-        this.props.fetchCourse(this.props.match.params.id);
+        //getting Task ID from url
+        this.props.fetchTask(this.props.match.params.id);
         this.setState({
-            title: this.props.course.title, 
-            timeslot: this.props.course.timeslot,
-            instructorId: this.props.course.instructorId, 
+            title: this.props.Task.title, 
+            timeslot: this.props.Task.timeslot,
+            EmployeeId: this.props.Task.EmployeeId, 
         });
       }
 
@@ -35,19 +35,19 @@ class EditCourseContainer extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        //get new info for course from form input
-        let course = {
-            id: this.props.course.id,
+        //get new info for Task from form input
+        let Task = {
+            id: this.props.Task.id,
             title: this.state.title,
             timeslot: this.state.timeslot,
-            instructorId: this.state.instructorId
+            EmployeeId: this.state.EmployeeId
         };
         
-        this.props.editCourse(course);
+        this.props.editTask(Task);
 
         this.setState({
           redirect: true, 
-          redirectId: this.props.course.id
+          redirectId: this.props.Task.id
         });
 
     }
@@ -57,9 +57,9 @@ class EditCourseContainer extends Component {
     }
 
     render() {
-      //go to single course view of the edited course
+      //go to single Task view of the edited Task
         if(this.state.redirect) {
-          return (<Redirect to={`/course/${this.state.redirectId}`}/>)
+          return (<Redirect to={`/Task/${this.state.redirectId}`}/>)
         }
 
         return (
@@ -72,8 +72,8 @@ class EditCourseContainer extends Component {
             <input type="text" name="timeslot" value={this.state.timeslot} onChange={(e) => this.handleChange(e)}/>
             <br/>
   
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>instructorId: </label>
-            <input type="text" name="instructorId" value={this.state.instructorId} onChange={(e) => this.handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>EmployeeId: </label>
+            <input type="text" name="EmployeeId" value={this.state.EmployeeId} onChange={(e) => this.handleChange(e)} />
             <br/>
   
             <button type="submit">
@@ -88,16 +88,16 @@ class EditCourseContainer extends Component {
 // map state to props
 const mapState = (state) => {
     return {
-      course: state.course,
+      Task: state.Task,
     };
   };
 
 const mapDispatch = (dispatch) => {
     return({
-        editCourse: (course) => dispatch(editCourseThunk(course)),
-        fetchCourse: (id) => dispatch(fetchCourseThunk(id)),
+        editTask: (Task) => dispatch(editTaskThunk(Task)),
+        fetchTask: (id) => dispatch(fetchTaskThunk(id)),
 
     })
 }
 
-export default connect(mapState, mapDispatch)(EditCourseContainer);
+export default connect(mapState, mapDispatch)(EditTaskContainer);
