@@ -1,5 +1,5 @@
 
-
+import React from 'react';
 
 const NewTaskView = (props) => {
   const {handleChange, handleSubmit } = props;
