@@ -13,18 +13,23 @@ const NewTaskView = (props) => {
           </h2>
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-          <label style= {{color:'#11153e', fontWeight: 'bold'}}>Title: </label>
-          <input type="text" name="title" onChange ={(e) => handleChange(e)} />
+          <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
+          <input type="text" name="Description" onChange ={(e) => handleChange(e)} />
           <br/>
           <br/>
 
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>Timeslot: </label>
-          <input type="text" name="timeslot" onChange={(e) => handleChange(e)} />
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
+          <input type="text" name="Priority Level" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>employeeId: </label>
-          <input type="text" name="employeeId" onChange={(e) => handleChange(e)} />
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
+          <input type="text" name="Completion Status" onChange={(e) => handleChange(e)} />
+          <br/>
+          <br/>
+          
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>EmployeeId: </label>
+          <input type="text" name="EmployeeID" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
