@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AllTasksView = (props) => {
   let {tasks, deleteTask} = props;
-  //tasks = [{id: 300, title: "hello"}]
+  tasks = [{id: 300, title: "hello"}]
   if (!tasks.length) {
     return (
     <div>
