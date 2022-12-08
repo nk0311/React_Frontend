@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const TaskView = (props) => {
   const { task } = props;
+  console.log(task)
   return (
     <div>
       <h1>{task.Description}</h1>
