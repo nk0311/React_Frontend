@@ -11,10 +11,11 @@ class NewTaskContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          title: "", 
-          timeslot: "",
+          Description: "", 
+          PriorityLevel: "",
           location: "", 
-          employeeid: null, 
+          CompletionStatus: "",
+          EmployeeID: null, 
           redirect: false, 
           redirectId: null
         };
@@ -30,10 +31,11 @@ class NewTaskContainer extends Component {
         event.preventDefault();
         //dont need ID because the task has not been created yet
         let task = {
-            title: this.state.title,
-            timeslot: this.state.timeslot,
+            Description: this.state.Description,
+            PriorityLevel: this.state.PriorityLevel,
+            CompletionStatus: this.state.CompletionStatus,
             location: this.state.location,
-            employeeid: this.state.employeeid
+            EmployeeID: this.state.EmployeeID
         };
         
         let newTask = await this.props.addTask(task);
