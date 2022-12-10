@@ -1,22 +1,20 @@
-import React from 'react';
 import "./App.css";
-
 
 //Router
 import { Switch, Route } from "react-router-dom";
 //Components
 import {
   HomePageContainer,
-  EmployeeContainer,
-  TaskContainer,
-  AllEmployeesContainer,
-  AllTasksContainer,
-  NewTaskContainer,
-  EditTaskContainer
+  InstructorContainer,
+  CourseContainer,
+  AllInstructorsContainer,
+  AllCoursesContainer,
+  NewCourseContainer,
+  EditCourseContainer
 } from './components/containers';
 
 // if you create separate components for adding/editing 
-// a student or employee, make sure you add routes to those
+// a student or instructor, make sure you add routes to those
 // components here
 
 const App = () => {
@@ -24,12 +22,12 @@ const App = () => {
     <div className="App">
       <Switch>
         <Route exact path="/" component={HomePageContainer} />
-        <Route exact path="/employees" component={AllEmployeesContainer} />
-        <Route exact path="/employee/:id" component={EmployeeContainer} />
-        <Route exact path="/tasks" component={AllTasksContainer} />
-        <Route exact path="/newtask" component={NewTaskContainer} />
-        <Route exact path="/task/:id" component={TaskContainer} />
-        <Route exact path="/edittask/:id" component={EditTaskContainer} />
+        <Route exact path="/instructors" component={AllInstructorsContainer} />
+        <Route exact path="/instructor/:id" component={InstructorContainer} />
+        <Route exact path="/courses" component={AllCoursesContainer} />
+        <Route exact path="/newcourse" component={NewCourseContainer} />
+        <Route exact path="/course/:id" component={CourseContainer} />
+        <Route exact path="/editcourse/:id" component={EditCourseContainer} />
 
       </Switch>        
     </div>

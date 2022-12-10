@@ -1,7 +1,3 @@
 # final-frontend
 
-nk0311 (Navait Kumar)
-
-Kevin635 (Kevin Ulcena)
-
-ELin-Tech (Eric Lin)
+starter code for CSCI 39548 final project
