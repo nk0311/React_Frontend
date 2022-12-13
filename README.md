@@ -1,5 +1,5 @@
 # final-frontend
 
-Navait Kumar
-Kevin Ulcena
+Navait Kumar (nk0311)
+Kevin Ulcena (Kevin635)
 Eric Lin (ELin-Tech)
