@@ -5,7 +5,7 @@ import * as at from './actionTypes';
  * for each action type
  */
 
-// All Employees
+// All employees
 export const fetchAllEmployees = (employees) => {
   return {
     type: at.FETCH_ALL_EMPLOYEES,

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -11,13 +10,14 @@ class NewTaskContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          Description: "", 
-          PriorityLevel: "",
-          location: "", 
-          CompletionStatus: "",
-          EmployeeID: null, 
+          description: "", 
+          prioritylevel: "",
+          completionstatus: "",
+          // location: "", 
+          employeeId: null, 
           redirect: false, 
-          redirectId: null
+          redirectId: null,
+          error: ""
         };
     }
 
@@ -30,19 +30,24 @@ class NewTaskContainer extends Component {
     handleSubmit = async event => {
         event.preventDefault();
         //dont need ID because the task has not been created yet
+        if(this.state.description===""){
+          this.setState({error:"Description field is required"});
+          return;
+        }
         let task = {
-            Description: this.state.Description,
-            PriorityLevel: this.state.PriorityLevel,
-            CompletionStatus: this.state.CompletionStatus,
-            location: this.state.location,
-            EmployeeID: this.state.EmployeeID
+            description: this.state.description,
+            prioritylevel: this.state.prioritylevel,
+            completionstatus: this.state.completionstatus,
+            // location: this.state.location,
+            employeeId: this.state.employeeId
         };
         
         let newTask = await this.props.addTask(task);
 
         this.setState({
           redirect: true, 
-          redirectId: newTask.id
+          redirectId: newTask.id,
+          error: ""
         });
     }
 
@@ -58,7 +63,8 @@ class NewTaskContainer extends Component {
         return (
           <NewTaskView 
             handleChange={this.handleChange} 
-            handleSubmit={this.handleSubmit}      
+            handleSubmit={this.handleSubmit}
+            error={this.state.error}      
           />
         );
     }

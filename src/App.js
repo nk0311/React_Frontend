@@ -1,6 +1,4 @@
-import React from 'react';
 import "./App.css";
-
 
 //Router
 import { Switch, Route } from "react-router-dom";

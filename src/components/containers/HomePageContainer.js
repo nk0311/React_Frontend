@@ -1,4 +1,3 @@
-import React from 'react';
 import HomePageView from '../views/HomePageView';
 
 const HomePageContainer = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -18,7 +17,7 @@ class AllTasksContainer extends Component {
         return(
             <div>
                 <AllTasksView 
-                  Tasks={this.props.allTasks}
+                  tasks={this.props.allTasks}
                   deleteTask={this.props.deleteTask}   
                 />
             </div>
@@ -37,7 +36,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllTasks: () => dispatch(fetchAllTasksThunk()),
-    deleteTask: (TaskId) => dispatch(deleteTaskThunk(TaskId)),
+    deleteTask: (taskId) => dispatch(deleteTaskThunk(taskId)),
   };
 };
 

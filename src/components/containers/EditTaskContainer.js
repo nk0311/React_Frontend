@@ -1,4 +1,3 @@
-import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -10,23 +9,23 @@ class EditTaskContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          Description: "", 
-          PriorityLevel: "",
-          CompletionStatus: "",
-          EmployeeID: null, 
+          description: "", 
+          prioritylevel: "",
+          completionstatus: "",
+          employeeId: null, 
           redirect: false, 
           redirectId: null
         };
     }
 
     componentDidMount() {
-        //getting Task ID from url
+        //getting task ID from url
         this.props.fetchTask(this.props.match.params.id);
         this.setState({
-            Description: this.props.Task.Description, 
-            PriorityLevel: this.props.Task.PriorityLevel,
-            CompletionStatus: this.props.Task.CompletionStatus,
-            EmployeeID: this.props.Task.EmployeeID, 
+            description: this.props.task.description, 
+            prioritylevel: this.props.task.prioritylevel,
+            completionstatus: this.props.task.completionstatus,
+            employeeId: this.props.task.employeeId, 
         });
       }
 
@@ -38,20 +37,20 @@ class EditTaskContainer extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        //get new info for Task from form input
-        let Task = {
-            id: this.props.Task.id,
-            Description: this.state.Description,
-            PriorityLevel: this.state.PriorityLevel,
-            CompletionStatus: this.state.CompletionStatus,
-            EmployeeID: this.state.EmployeeID
+        //get new info for task from form input
+        let task = {
+            id: this.props.task.id,
+            description: this.state.description,
+            prioritylevel: this.state.prioritylevel,
+            completionstatus: this.state.completionstatus,
+            employeeId: this.state.employeeId
         };
         
-        this.props.editTask(Task);
+        this.props.editTask(task);
 
         this.setState({
           redirect: true, 
-          redirectId: this.props.Task.id
+          redirectId: this.props.task.id
         });
 
     }
@@ -61,27 +60,27 @@ class EditTaskContainer extends Component {
     }
 
     render() {
-      //go to single Task view of the edited Task
+      //go to single task view of the edited task
         if(this.state.redirect) {
-          return (<Redirect to={`/Task/${this.state.redirectId}`}/>)
+          return (<Redirect to={`/task/${this.state.redirectId}`}/>)
         }
 
         return (
             <form style={{textAlign: 'center'}} onSubmit={(e) => this.handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input type="text" name="Description" value={this.state.Description} onChange ={(e) => this.handleChange(e)}/>
+            <input type="text" name="description" value={this.state.description} onChange ={(e) => this.handleChange(e)}/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
-            <input type="text" name="Priority Level" value={this.state.PriorityLevel} onChange={(e) => this.handleChange(e)}/>
-            <br/>
-            
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
-            <input type="text" name="Completion Status" value={this.state.CompletionStatus} onChange={(e) => this.handleChange(e)} />
+            <input type="text" name="prioritylevel" value={this.state.prioritylevel} onChange={(e) => this.handleChange(e)}/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>EmployeeID: </label>
-            <input type="text" name="EmployeeID" value={this.state.EmployeeID} onChange={(e) => this.handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
+            <input type="text" name="completionstatus" value={this.state.employeeId} onChange={(e) => this.handleChange(e)} />
+            <br/>
+  
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>EmployeeId: </label>
+            <input type="text" name="employeeId" value={this.state.employeeId} onChange={(e) => this.handleChange(e)} />
             <br/>
   
             <button type="submit">
@@ -96,13 +95,13 @@ class EditTaskContainer extends Component {
 // map state to props
 const mapState = (state) => {
     return {
-      Task: state.Task,
+      task: state.task,
     };
   };
 
 const mapDispatch = (dispatch) => {
     return({
-        editTask: (Task) => dispatch(editTaskThunk(Task)),
+        editTask: (task) => dispatch(editTaskThunk(task)),
         fetchTask: (id) => dispatch(fetchTaskThunk(id)),
 
     })

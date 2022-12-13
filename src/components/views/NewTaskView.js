@@ -1,8 +1,8 @@
 
-import React from 'react';
+
 
 const NewTaskView = (props) => {
-  const {handleChange, handleSubmit } = props;
+  const {handleChange, handleSubmit, error } = props;
 
   return (
     <div className="root">
@@ -14,22 +14,22 @@ const NewTaskView = (props) => {
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
           <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-          <input type="text" name="Description" onChange ={(e) => handleChange(e)} />
+          <input type="text" name="description" onChange ={(e) => handleChange(e)} />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
-          <input type="text" name="PriorityLevel" onChange={(e) => handleChange(e)} />
+          <input type="text" name="prioritylevel" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
-          <input type="text" name="CompletionStatus" onChange={(e) => handleChange(e)} />
+          <input type="text" name="completionstatus" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
-          
+
           <label style={{color:'#11153e', fontWeight: 'bold'}}>EmployeeId: </label>
-          <input type="text" name="EmployeeID" onChange={(e) => handleChange(e)} />
+          <input type="text" name="employeeId" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
@@ -39,6 +39,7 @@ const NewTaskView = (props) => {
           <br/>
           <br/>
         </form>
+        {error!=="" && <p>{error}</p>}
         </div>
       </div>
     

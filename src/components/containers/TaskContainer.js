@@ -4,30 +4,15 @@ import { fetchTaskThunk } from "../../store/thunks";
 import { TaskView } from "../views";
 
 class TaskContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      task : {}
-    }
-  }
-
   componentDidMount() {
-    //getting Task ID from url
-    // this.state.task = await this.props.fetchTask(this.props.match.params.id)
-
-    this.loadTasks(this.props.match.params.id)
-    // this.props.fetchTask(this.props.match.params.id);
-  }  
-  async loadTasks (taskId){
-    await this.props.fetchTask(taskId).then(res=>{
-      this.setState({task:res })
-    })
-  } 
+    //getting task ID from url
+    this.props.fetchTask(this.props.match.params.id);
+  }
 
   render() {
     return (
       <TaskView 
-        task={this.state.task}
+        task={this.props.task}
       />
     );
   }
@@ -36,7 +21,7 @@ class TaskContainer extends Component {
 // map state to props
 const mapState = (state) => {
   return {
-    Task: state.Task,
+    task: state.task,
   };
 };
 
