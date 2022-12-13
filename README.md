@@ -1,3 +1,5 @@
 # final-frontend
 
-starter code for CSCI 39548 final project
+Navait Kumar
+Kevin Ulcena
+Eric Lin
